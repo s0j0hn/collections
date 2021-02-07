@@ -19,6 +19,9 @@ jsconfig.json
 *-local.properties
 *-local.json
 *.key
+collections.json
+collectionsTest.json
+views/homepage.pug
 volumes/
 
 ### OS generated files ####
@@ -30,3 +33,5 @@ volumes/
 ehthumbs.db
 Thumbs.db
 
+.env
+views/homepage.pug

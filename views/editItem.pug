@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container
+    h1.mark= collection.name
+    br
+    h5 Edit item:
+    
+    form(method='POST',action="/modify/"+collection.name+"/"+item.id)
+      each shortProperty in collection.shortProperties
+        li #{shortProperty}:
+            input.form-control(name=shortProperty, type='text', value=item[shortProperty])
+      each longProperty in collection.longProperties
+        li #{longProperty}:
+            textarea.form-control(name=longProperty)= item[longProperty]
+      br
+      p
+        input.btn.btn-primary(type='submit',name='_btn',value='Save')
+      p
+        a.btn.btn-danger.delete-item(href='#',itemId=item.id,collectionName=collection.name) Delete
+    
+    br
+    br
+    a.btn.bg-info.mr-1.text-white(href="/") Home
+    a.btn.bg-info.text-white(href="/edit/"+collection.name) Back
+    br
+    br
